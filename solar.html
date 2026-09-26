@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>COSMOS — Solar System</title>
+
+    <link rel="stylesheet" href="./solar.css">
+</head>
+
+<body>
+
+    <!-- ================================================
+         STAR FIELD
+    ================================================= -->
+
+    <div class="stars"></div>
+    <div class="stars-2"></div>
+    <div class="stars-3"></div>
+
+
+    <!-- ================================================
+         HEADER
+    ================================================= -->
+
+    <header class="site-header">
+
+        <a href="#" class="logo">
+            COSMOS<span>.</span>
+        </a>
+
+        <div class="header-status">
+            <span class="status-dot"></span>
+            SOLAR SYSTEM / 01
+        </div>
+
+        <button
+            class="menu-btn"
+            aria-label="Open menu"
+            type="button">
+
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+    <!-- ================================================
+         MAIN
+    ================================================= -->
+
+    <main>
+
+
+        <!-- ============================================
+             HERO
+        ============================================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    OUR COSMIC NEIGHBOURHOOD
+                </p>
+
+                <h1>
+                    Beyond <em>Earth.</em>
+                </h1>
+
+                <p class="hero-description">
+                    Eight worlds. One star. Billions of years
+                    of cosmic history waiting to be explored.
+                </p>
+
+                <button
+                    class="explore-btn"
+                    type="button">
+
+                    <span>
+                        Explore the system
+                    </span>
+
+                    <span class="arrow">
+                        ↓
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- ========================================
+                 SOLAR SYSTEM
+            ========================================= -->
+
+            <div class="solar-system">
+
+
+                <!-- SUN -->
+
+                <div
+                    class="sun"
+                    title="The Sun">
+                </div>
+
+
+                <!-- MERCURY -->
+
+                <div class="orbit orbit-mercury">
+
+                    <div
+                        class="planet mercury"
+                        data-planet="mercury"
+                        title="Mercury">
+                    </div>
+
+                </div>
+
+
+                <!-- VENUS -->
+
+                <div class="orbit orbit-venus">
+
+                    <div
+                        class="planet venus"
+                        data-planet="venus"
+                        title="Venus">
+                    </div>
+
+                </div>
+
+
+                <!-- EARTH -->
+
+                <div class="orbit orbit-earth">
+
+                    <div
+                        class="planet earth"
+                        data-planet="earth"
+                        title="Earth">
+
+
+                        <!-- MOON -->
+
+                        <div class="moon-orbit">
+
+                            <div class="moon"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MARS -->
+
+                <div class="orbit orbit-mars">
+
+                    <div
+                        class="planet mars"
+                        data-planet="mars"
+                        title="Mars">
+                    </div>
+
+                </div>
+
+
+                <!-- JUPITER -->
+
+                <div class="orbit orbit-jupiter">
+
+                    <div
+                        class="planet jupiter"
+                        data-planet="jupiter"
+                        title="Jupiter">
+                    </div>
+
+                </div>
+
+
+                <!-- SATURN -->
+
+                <div class="orbit orbit-saturn">
+
+                    <div
+                        class="planet saturn"
+                        data-planet="saturn"
+                        title="Saturn">
+
+                        <span class="saturn-ring"></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- URANUS -->
+
+                <div class="orbit orbit-uranus">
+
+                    <div
+                        class="planet uranus"
+                        data-planet="uranus"
+                        title="Uranus">
+                    </div>
+
+                </div>
+
+
+                <!-- NEPTUNE -->
+
+                <div class="orbit orbit-neptune">
+
+                    <div
+                        class="planet neptune"
+                        data-planet="neptune"
+                        title="Neptune">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SCROLL HINT -->
+
+            <div class="scroll-hint">
+
+                <span class="scroll-line"></span>
+
+                <span>
+                    SCROLL TO EXPLORE
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================================
+             INTRODUCTION
+        ============================================= -->
+
+        <section
+            class="content-section intro-section"
+            id="intro">
+
+
+            <div class="section-label">
+
+                <span>
+                    01
+                </span>
+
+                THE BEGINNING
+
+            </div>
+
+
+            <div class="intro-content">
+
+                <p class="large-text">
+
+                    Our Solar System is a tiny
+                    corner of an enormous universe.
+
+                </p>
+
+
+                <p class="body-text">
+
+                    Around 4.6 billion years ago,
+                    gravity gathered gas and dust into
+                    the Sun and the worlds that orbit it.
+                    Today, eight planets travel through
+                    this vast cosmic neighbourhood.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================================
+             PLANET EXPLORER
+        ============================================= -->
+
+        <section
+            class="content-section planet-section"
+            id="planet-explorer">
+
+
+            <div class="section-label">
+
+                <span>
+                    02
+                </span>
+
+                PLANET EXPLORER
+
+            </div>
+
+
+            <div class="planet-explorer-grid">
+
+
+                <!-- ====================================
+                     PLANET SELECTOR
+                ===================================== -->
+
+                <div class="planet-selector">
+
+
+                    <button
+                        class="active"
+                        data-planet="earth"
+                        type="button">
+
+                        <span>
+                            03
+                        </span>
+
+                        Earth
+
+                    </button>
+
+
+                    <button
+                        data-planet="mercury"
+                        type="button">
+
+                        <span>
+                            01
+                        </span>
+
+                        Mercury
+
+                    </button>
+
+
+                    <button
+                        data-planet="venus"
+                        type="button">
+
+                        <span>
+                            02
+                        </span>
+
+                        Venus
+
+                    </button>
+
+
+                    <button
+                        data-planet="mars"
+                        type="button">
+
+                        <span>
+                            04
+                        </span>
+
+                        Mars
+
+                    </button>
+
+
+                    <button
+                        data-planet="jupiter"
+                        type="button">
+
+                        <span>
+                            05
+                        </span>
+
+                        Jupiter
+
+                    </button>
+
+
+                    <button
+                        data-planet="saturn"
+                        type="button">
+
+                        <span>
+                            06
+                        </span>
+
+                        Saturn
+
+                    </button>
+
+
+                    <button
+                        data-planet="uranus"
+                        type="button">
+
+                        <span>
+                            07
+                        </span>
+
+                        Uranus
+
+                    </button>
+
+
+                    <button
+                        data-planet="neptune"
+                        type="button">
+
+                        <span>
+                            08
+                        </span>
+
+                        Neptune
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- ====================================
+                     PLANET INFORMATION
+                ===================================== -->
+
+                <div class="planet-info">
+
+
+                    <!-- PLANET IMAGE -->
+
+                    <div class="planet-image-wrapper">
+
+                        <img
+                            id="planet-image"
+                            src="./assets/planets/earth.jpg"
+                            alt="Earth planet"
+                        >
+
+
+                        <div class="planet-image-overlay">
+                        </div>
+
+
+                        <div
+                            class="planet-image-number"
+                            id="planet-image-number">
+
+                            03
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PLANET DETAILS -->
+
+                    <div class="planet-details">
+
+
+                        <span
+                            class="planet-type"
+                            id="planet-type-label">
+
+                            TERRESTRIAL PLANET
+
+                        </span>
+
+
+                        <h3 id="planet-name">
+
+                            Earth
+
+                        </h3>
+
+
+                        <p id="planet-description">
+
+                            Earth is our home world,
+                            with vast oceans, continents
+                            and an atmosphere capable of
+                            supporting the life we know.
+
+                        </p>
+
+
+
+                        <!-- FACTS -->
+
+                        <div class="planet-facts">
+
+
+                            <div>
+
+                                <span>
+                                    ORDER FROM SUN
+                                </span>
+
+                                <strong id="planet-order">
+                                    03
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    PLANET TYPE
+                                </span>
+
+                                <strong id="planet-type">
+                                    TERRESTRIAL
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="planet-info-line">
+                        </div>
+
+
+                        <span class="planet-info-label">
+
+                            SELECT A WORLD TO EXPLORE
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================================
+             DISTANCE / SCALE
+        ============================================= -->
+
+        <section
+            class="content-section scale-section"
+            id="scale">
+
+
+            <div class="section-label">
+
+                <span>
+                    03
+                </span>
+
+                DISTANCE
+
+            </div>
+
+
+            <div class="scale-content">
+
+
+                <p class="large-text">
+
+                    Space is bigger than
+                    you think.
+
+                </p>
+
+
+                <p class="body-text">
+
+                    The planets may look close together
+                    in illustrations, but the actual
+                    distances between them are enormous.
+
+                </p>
+
+
+
+                <!-- SCALE SYSTEM -->
+
+                <div class="scale-system">
+
+
+                    <div class="scale-line">
+
+                        <span class="scale-point sun-point"></span>
+
+                        <span class="scale-point mercury-point"></span>
+
+                        <span class="scale-point venus-point"></span>
+
+                        <span class="scale-point earth-point"></span>
+
+                        <span class="scale-point mars-point"></span>
+
+                        <span class="scale-point jupiter-point"></span>
+
+                        <span class="scale-point saturn-point"></span>
+
+                        <span class="scale-point uranus-point"></span>
+
+                        <span class="scale-point neptune-point"></span>
+
+                    </div>
+
+
+
+                    <div class="scale-labels">
+
+                        <span>
+                            Sun
+                        </span>
+
+                        <span>
+                            Mercury
+                        </span>
+
+                        <span>
+                            Venus
+                        </span>
+
+                        <span>
+                            Earth
+                        </span>
+
+                        <span>
+                            Mars
+                        </span>
+
+                        <span>
+                            Jupiter
+                        </span>
+
+                        <span>
+                            Saturn
+                        </span>
+
+                        <span>
+                            Uranus
+                        </span>
+
+                        <span>
+                            Neptune
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ============================================
+             FINAL SECTION
+        ============================================= -->
+
+        <section class="final-section">
+
+
+            <div class="final-content">
+
+
+                <p class="eyebrow">
+
+                    KEEP LOOKING UP
+
+                </p>
+
+
+                <h2>
+
+                    The universe
+                    <em>is waiting.</em>
+
+                </h2>
+
+
+                <p>
+
+                    This is only one small system
+                    inside an unimaginably vast cosmos.
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================================================
+         FOOTER
+    ================================================= -->
+
+    <footer class="site-footer">
+
+
+        <div>
+
+            COSMOS<span>.</span>
+
+        </div>
+
+
+        <div>
+
+            SOLAR SYSTEM /
+
+            <span class="footer-year"></span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================================================
+         JAVASCRIPT
+    ================================================= -->
+
+    <script src="./solar.js"></script>
+
+</body>
+
+</html>

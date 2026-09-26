@@ -1,0 +1,1692 @@
+/* =========================================
+   VANTA — CLOTHING BRAND
+   MOBILE-FIRST STYLES
+========================================= */
+
+:root {
+    --black: #080808;
+    --black-soft: #101010;
+    --white: #f4f3ef;
+    --muted: #858581;
+    --line: rgba(244, 243, 239, 0.14);
+    --soft-line: rgba(244, 243, 239, 0.08);
+    --accent: #c8c6bd;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--black);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    min-width: 0;
+    background: var(--black);
+    color: var(--white);
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+body.menu-open,
+body.modal-open {
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    touch-action: manipulation;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background: var(--white);
+    color: var(--black);
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* =========================================
+   LOADER
+========================================= */
+
+.vanta-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    background: var(--black);
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.vanta-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-brand {
+    color: var(--white);
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(48px, 15vw, 100px);
+    font-weight: 600;
+    letter-spacing: -0.08em;
+    line-height: 0.8;
+}
+
+.loader-line {
+    width: 100%;
+    height: 1px;
+    margin-top: 42px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.loader-line span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--white);
+    animation: loaderProgress 1.8s cubic-bezier(.65, 0, .35, 1) forwards;
+}
+
+.loader-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    color: #666;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+@keyframes loaderProgress {
+    to {
+        width: 100%;
+    }
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.vanta-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 500;
+    pointer-events: none;
+}
+
+.vanta-nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 20px;
+    pointer-events: auto;
+    border-bottom: 1px solid transparent;
+    transition:
+        background 0.4s ease,
+        border-color 0.4s ease,
+        backdrop-filter 0.4s ease;
+}
+
+.vanta-header.scrolled .vanta-nav {
+    background: rgba(8, 8, 8, 0.82);
+    border-color: var(--soft-line);
+    backdrop-filter: blur(16px);
+}
+
+.vanta-logo {
+    color: var(--white);
+    font-size: 23px;
+    font-weight: 600;
+    letter-spacing: -0.07em;
+}
+
+.vanta-nav-links {
+    display: none;
+    align-items: center;
+    gap: 34px;
+}
+
+.vanta-nav-links a {
+    position: relative;
+    color: #aaa;
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.vanta-nav-links a::after {
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 1px;
+    content: "";
+    background: var(--white);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.vanta-nav-links a:hover {
+    color: var(--white);
+}
+
+.vanta-nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.vanta-menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: transparent;
+}
+
+.vanta-menu-button span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    margin-left: auto;
+    background: var(--white);
+    transition:
+        transform 0.35s ease,
+        width 0.35s ease;
+}
+
+.vanta-menu-button span:last-child {
+    width: 15px;
+}
+
+.vanta-menu-button.active span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+}
+
+.vanta-menu-button.active span:last-child {
+    width: 22px;
+    transform: translateY(-3.5px) rotate(-45deg);
+}
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.vanta-mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    padding: 90px 24px 30px;
+    background: rgba(8, 8, 8, 0.97);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease,
+        transform 0.4s ease;
+}
+
+.vanta-mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.vanta-mobile-menu a {
+    color: var(--white);
+    font-size: clamp(40px, 12vw, 68px);
+    font-weight: 500;
+    letter-spacing: -0.065em;
+    line-height: 0.95;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.vanta-hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding: 120px 20px 55px;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.03);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.32) 0%,
+            rgba(0, 0, 0, 0.1) 35%,
+            rgba(0, 0, 0, 0.78) 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.eyebrow {
+    display: block;
+    margin-bottom: 24px;
+    color: rgba(255, 255, 255, 0.72);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    max-width: 700px;
+    color: var(--white);
+    font-size: clamp(54px, 16vw, 120px);
+    font-weight: 500;
+    letter-spacing: -0.075em;
+    line-height: 0.86;
+}
+
+.hero-content h1 span {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+}
+
+.hero-content p {
+    max-width: 390px;
+    margin-top: 27px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.vanta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 48px;
+    margin-top: 28px;
+    padding: 0 17px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    color: var(--white);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.vanta-button span {
+    font-size: 13px;
+}
+
+.vanta-button:hover {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--black);
+    transform: translateY(-2px);
+}
+
+.hero-bottom {
+    position: absolute;
+    right: 20px;
+    bottom: 22px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.48);
+    font-family: "DM Mono", monospace;
+    font-size: 7px;
+    letter-spacing: 0.13em;
+}
+
+.hero-scroll {
+    display: none;
+}
+
+
+/* =========================================
+   SECTION BASICS
+========================================= */
+
+.section-label {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    color: #777;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.section-label span {
+    color: var(--white);
+}
+
+.section-heading {
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    margin-top: 22px;
+    color: var(--white);
+    font-size: clamp(42px, 13vw, 90px);
+    font-weight: 500;
+    letter-spacing: -0.075em;
+    line-height: 0.9;
+}
+
+.section-heading > p {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================================
+   STATEMENT
+========================================= */
+
+.vanta-statement {
+    padding: 100px 20px;
+    background: var(--black);
+}
+
+.statement-content {
+    margin-top: 70px;
+}
+
+.statement-content h2 {
+    max-width: 900px;
+    color: var(--white);
+    font-size: clamp(43px, 13vw, 100px);
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 0.9;
+}
+
+.statement-content h2 span {
+    display: block;
+    color: #686864;
+}
+
+.statement-content p {
+    max-width: 480px;
+    margin-top: 45px;
+    color: #858581;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   COLLECTION
+========================================= */
+
+.vanta-collection {
+    padding: 100px 20px;
+    border-top: 1px solid var(--soft-line);
+    background: var(--black-soft);
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 45px 14px;
+}
+
+.product-card {
+    cursor: pointer;
+}
+
+.product-image {
+    position: relative;
+    height: 120vw;
+    max-height: 560px;
+    overflow: hidden;
+    background: #171717;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform 0.8s cubic-bezier(.2, .65, .3, 1),
+        filter 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.045);
+    filter: brightness(0.82);
+}
+
+.product-number {
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    color: rgba(255, 255, 255, 0.72);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+}
+
+.product-view {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 42px;
+    padding: 0 14px;
+    background: rgba(8, 8, 8, 0.78);
+    color: var(--white);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    opacity: 1;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.product-view:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding-top: 17px;
+}
+
+.product-info span {
+    display: block;
+    margin-bottom: 7px;
+    color: #6d6d69;
+    font-family: "DM Mono", monospace;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+}
+
+.product-info h3 {
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+}
+
+.product-info strong {
+    flex-shrink: 0;
+    color: #aaa;
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    font-weight: 400;
+}
+
+
+/* =========================================
+   EDITORIAL
+========================================= */
+
+.vanta-editorial {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.editorial-image {
+    position: absolute;
+    inset: 0;
+}
+
+.editorial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.editorial-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.78)
+        );
+}
+
+.editorial-content {
+    position: relative;
+    z-index: 2;
+}
+
+.editorial-content > span {
+    color: rgba(255, 255, 255, 0.62);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.17em;
+}
+
+.editorial-content h2 {
+    max-width: 700px;
+    margin-top: 18px;
+    color: var(--white);
+    font-size: clamp(44px, 13vw, 105px);
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 0.88;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 30px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    color: var(--white);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   LOOKBOOK
+========================================= */
+
+.vanta-lookbook {
+    padding: 100px 20px;
+    background: var(--black);
+}
+
+.lookbook-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.lookbook-item {
+    position: relative;
+    min-height: 120vw;
+    max-height: 650px;
+    overflow: hidden;
+}
+
+.lookbook-item.large {
+    min-height: 145vw;
+}
+
+.lookbook-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(.2, .65, .3, 1);
+}
+
+.lookbook-item:hover img {
+    transform: scale(1.04);
+}
+
+.lookbook-item span {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+.vanta-story {
+    padding: 100px 20px;
+    border-top: 1px solid var(--soft-line);
+    background: var(--black-soft);
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    margin-top: 65px;
+}
+
+.story-heading h2 {
+    max-width: 650px;
+    color: var(--white);
+    font-size: clamp(48px, 14vw, 110px);
+    font-weight: 500;
+    letter-spacing: -0.085em;
+    line-height: 0.87;
+}
+
+.story-heading h2 span {
+    display: block;
+    color: #676762;
+}
+
+.story-copy {
+    max-width: 480px;
+}
+
+.story-copy p {
+    margin-bottom: 28px;
+    color: #858581;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.vanta-cta {
+    position: relative;
+    min-height: 90svh;
+    display: flex;
+    align-items: flex-end;
+    padding: 75px 20px;
+    overflow: hidden;
+}
+
+.cta-image {
+    position: absolute;
+    inset: 0;
+}
+
+.cta-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.42);
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content > span {
+    color: rgba(255, 255, 255, 0.65);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+}
+
+.cta-content h2 {
+    max-width: 700px;
+    margin-top: 18px;
+    color: var(--white);
+    font-size: clamp(54px, 15vw, 120px);
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 0.85;
+}
+
+.cta-content h2 span {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================
+   NEWSLETTER
+========================================= */
+
+.vanta-newsletter {
+    padding: 100px 20px;
+    background: var(--black);
+}
+
+.vanta-newsletter h2 {
+    max-width: 800px;
+    margin-top: 65px;
+    color: var(--white);
+    font-size: clamp(46px, 13vw, 100px);
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 0.88;
+}
+
+.vanta-newsletter h2 span {
+    display: block;
+    color: #666662;
+}
+
+.vanta-newsletter > p {
+    max-width: 420px;
+    margin-top: 30px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 550px;
+    margin-top: 40px;
+    border-bottom: 1px solid var(--line);
+}
+
+.newsletter-form input {
+    width: 100%;
+    min-height: 50px;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    color: var(--white);
+    font-size: 13px;
+}
+
+.newsletter-form input::placeholder {
+    color: #555;
+}
+
+.newsletter-form button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 50px;
+    background: transparent;
+    color: var(--white);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.newsletter-form button span {
+    font-size: 13px;
+}
+
+.newsletter-message {
+    display: none;
+    margin-top: 18px;
+    color: #aaa;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.newsletter-message.show {
+    display: block;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.vanta-contact {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 70px;
+    padding: 100px 20px;
+    border-top: 1px solid var(--soft-line);
+    background: var(--black-soft);
+}
+
+.contact-heading h2 {
+    max-width: 700px;
+    margin-top: 55px;
+    color: var(--white);
+    font-size: clamp(55px, 15vw, 120px);
+    font-weight: 500;
+    letter-spacing: -0.085em;
+    line-height: 0.85;
+}
+
+.contact-heading h2 span {
+    display: block;
+    color: #666662;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-links a {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    color: var(--white);
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    transition:
+        padding-left 0.3s ease,
+        color 0.3s ease;
+}
+
+.contact-links a:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.contact-links a:hover {
+    padding-left: 8px;
+    color: #aaa;
+}
+
+
+/* =========================================
+   PRODUCT MODAL
+========================================= */
+
+.product-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease;
+}
+
+.product-modal.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.product-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+}
+
+.product-modal-panel {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-height: 94svh;
+    overflow-y: auto;
+    background: #111;
+    border: 1px solid var(--line);
+    border-radius: 20px 20px 0 0;
+    transform: translateY(40px);
+    transition: transform 0.5s cubic-bezier(.2, .75, .25, 1);
+}
+
+.product-modal.open .product-modal-panel {
+    transform: translateY(0);
+}
+
+.product-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 5;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 300;
+    backdrop-filter: blur(10px);
+}
+
+.product-modal-image {
+    min-height: 105vw;
+    background-position: center;
+    background-size: cover;
+}
+
+.product-modal-content {
+    padding: 32px 22px 35px;
+}
+
+.modal-product-number {
+    display: block;
+    margin-bottom: 14px;
+    color: #777;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+}
+
+.modal-product-category {
+    color: #777;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.14em;
+}
+
+.product-modal-content h2 {
+    margin-top: 15px;
+    color: var(--white);
+    font-size: clamp(40px, 12vw, 75px);
+    font-weight: 500;
+    letter-spacing: -0.075em;
+    line-height: 0.9;
+}
+
+.product-modal-content > p {
+    max-width: 430px;
+    margin-top: 25px;
+    color: #858581;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.modal-product-price {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.modal-product-price span {
+    color: #666;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+}
+
+.modal-product-price strong {
+    color: var(--white);
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.modal-product-options {
+    margin-top: 28px;
+}
+
+.modal-product-options > span {
+    display: block;
+    margin-bottom: 12px;
+    color: #666;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+}
+
+.size-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.size-options button {
+    min-height: 42px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: #aaa;
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.size-options button:hover,
+.size-options button.active {
+    border-color: var(--white);
+    background: var(--white);
+    color: var(--black);
+}
+
+.modal-add-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 52px;
+    margin-top: 20px;
+    padding: 0 18px;
+    background: var(--white);
+    color: var(--black);
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.modal-add-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.modal-added-message {
+    display: none;
+    margin-top: 15px;
+    color: #888;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.modal-added-message.show {
+    display: block;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.vanta-footer {
+    padding: 35px 20px 40px;
+    background: var(--black);
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 55px;
+}
+
+.footer-brand {
+    color: var(--white);
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -0.08em;
+    line-height: 0.8;
+}
+
+.footer-top p {
+    color: #666;
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid var(--soft-line);
+    color: #555;
+    font-family: "DM Mono", monospace;
+    font-size: 7px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.footer-bottom a {
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: var(--white);
+}
+
+
+/* =========================================
+   CUSTOM CURSOR
+========================================= */
+
+.vanta-cursor,
+.vanta-cursor-ring {
+    display: none;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 600px) {
+
+    .vanta-nav {
+        height: 76px;
+        padding: 0 35px;
+    }
+
+    .vanta-hero {
+        padding: 140px 35px 70px;
+    }
+
+    .hero-bottom {
+        right: 35px;
+        bottom: 28px;
+        left: 35px;
+    }
+
+    .vanta-statement,
+    .vanta-collection,
+    .vanta-lookbook,
+    .vanta-story,
+    .vanta-newsletter,
+    .vanta-contact {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 18px;
+    }
+
+    .product-image {
+        height: 68vw;
+        max-height: 650px;
+    }
+
+    .lookbook-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .lookbook-item {
+        min-height: 70vw;
+    }
+
+    .lookbook-item.large {
+        grid-row: span 2;
+        min-height: 100vw;
+    }
+
+    .vanta-editorial,
+    .vanta-cta {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    .product-modal-panel {
+        grid-template-columns: 0.9fr 1.1fr;
+        width: min(950px, 92vw);
+        max-height: 90vh;
+        border-radius: 0;
+        transform: translateY(30px);
+    }
+
+    .product-modal-image {
+        min-height: 600px;
+    }
+
+    .product-modal-content {
+        padding: 55px 40px;
+        overflow-y: auto;
+    }
+
+    .vanta-footer {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    .footer-top {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 900px) {
+
+    .vanta-nav {
+        height: 82px;
+        padding: 0 5vw;
+    }
+
+    .vanta-nav-links {
+        display: flex;
+    }
+
+    .vanta-menu-button {
+        display: none;
+    }
+
+    .vanta-mobile-menu {
+        display: none;
+    }
+
+    .vanta-hero {
+        padding: 160px 5vw 90px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(80px, 11vw, 155px);
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .hero-scroll {
+        position: absolute;
+        right: 5vw;
+        bottom: 85px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.5);
+        font-family: "DM Mono", monospace;
+        font-size: 7px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+    }
+
+    .hero-scroll span {
+        display: block;
+        width: 1px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .vanta-statement,
+    .vanta-collection,
+    .vanta-lookbook,
+    .vanta-story,
+    .vanta-newsletter,
+    .vanta-contact {
+        padding-right: 10vw;
+        padding-left: 10vw;
+    }
+
+    .vanta-statement,
+    .vanta-collection,
+    .vanta-lookbook,
+    .vanta-story,
+    .vanta-newsletter,
+    .vanta-contact {
+        padding-top: 150px;
+        padding-bottom: 150px;
+    }
+
+    .statement-content {
+        margin-top: 110px;
+    }
+
+    .statement-content p {
+        margin-top: 65px;
+        margin-left: 35%;
+    }
+
+    .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 90px 25px;
+    }
+
+    .product-image {
+        height: 50vw;
+        max-height: 720px;
+    }
+
+    .product-info h3 {
+        font-size: 19px;
+    }
+
+    .product-info strong {
+        font-size: 10px;
+    }
+
+    .vanta-editorial {
+        min-height: 100vh;
+        padding: 120px 10vw;
+    }
+
+    .editorial-content h2 {
+        font-size: clamp(75px, 9vw, 140px);
+    }
+
+    .vanta-lookbook {
+        padding-bottom: 180px;
+    }
+
+    .lookbook-grid {
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 20px;
+    }
+
+    .lookbook-item {
+        min-height: 42vw;
+    }
+
+    .lookbook-item.large {
+        min-height: 60vw;
+    }
+
+    .story-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 12vw;
+        margin-top: 110px;
+    }
+
+    .story-copy {
+        align-self: end;
+    }
+
+    .vanta-cta {
+        min-height: 100vh;
+        padding: 120px 10vw;
+    }
+
+    .cta-content h2 {
+        font-size: clamp(85px, 11vw, 165px);
+    }
+
+    .vanta-newsletter h2 {
+        font-size: clamp(80px, 10vw, 150px);
+    }
+
+    .newsletter-form {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+
+    .newsletter-form input {
+        flex: 1;
+    }
+
+    .newsletter-form button {
+        width: 170px;
+    }
+
+    .vanta-contact {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: end;
+        gap: 12vw;
+    }
+
+    .contact-heading h2 {
+        font-size: clamp(90px, 11vw, 165px);
+    }
+
+    .contact-links a {
+        padding: 25px 0;
+    }
+
+    .vanta-footer {
+        padding: 45px 5vw 55px;
+    }
+
+    .footer-brand {
+        font-size: 65px;
+    }
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1200px) {
+
+    .vanta-nav {
+        padding-right: 6vw;
+        padding-left: 6vw;
+    }
+
+    .vanta-hero {
+        padding-right: 7vw;
+        padding-left: 7vw;
+    }
+
+    .hero-content h1 {
+        max-width: 1000px;
+    }
+
+    .hero-bottom {
+        right: 7vw;
+        left: 7vw;
+    }
+
+    .collection-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .product-image {
+        height: 38vw;
+        max-height: 620px;
+    }
+
+    .product-info {
+        display: block;
+    }
+
+    .product-info strong {
+        display: block;
+        margin-top: 9px;
+    }
+
+    .lookbook-grid {
+        grid-template-columns: 1.4fr 0.6fr;
+    }
+}
+
+
+/* =========================================
+   MOBILE POLISH
+========================================= */
+
+@media (max-width: 599px) {
+
+    .vanta-button {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .product-card {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .product-view {
+        min-width: 82px;
+        justify-content: space-between;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+        min-height: 52px;
+    }
+
+    .product-modal-panel {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .vanta-footer {
+        padding-bottom: calc(
+            40px + env(safe-area-inset-bottom)
+        );
+    }
+}
+
+
+/* =========================================
+   HOVER DEVICE RULES
+========================================= */
+
+@media (hover: none) {
+
+    .product-card:hover .product-image img,
+    .lookbook-item:hover img {
+        transform: none;
+        filter: none;
+    }
+
+    .contact-links a:hover {
+        padding-left: 0;
+    }
+
+    .vanta-button:hover {
+        transform: none;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

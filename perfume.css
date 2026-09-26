@@ -1,0 +1,1175 @@
+```css
+/* =========================================================
+   ÉLAN — PREMIUM PERFUME WEBSITE
+   Mobile-first CSS
+========================================================= */
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f6f4ef;
+    color: #171717;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --background: #f6f4ef;
+    --dark: #171717;
+    --muted: #77736c;
+    --line: #d9d6cf;
+    --accent: #a38a5c;
+
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.menu-btn {
+    width: 42px;
+    height: 42px;
+
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.menu-btn span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--dark);
+
+    transition: 0.3s ease;
+}
+
+.menu-btn span:last-child {
+    width: 16px;
+}
+
+.nav {
+    display: none;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100svh;
+
+    padding: 120px 22px 50px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(62px, 18vw, 100px);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -4px;
+}
+
+.hero h1 em,
+.story h2 em,
+.final-cta h2 em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.hero-description {
+    max-width: 280px;
+
+    margin-top: 28px;
+
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn,
+.buy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    min-width: 190px;
+
+    padding: 16px 18px;
+
+    margin-top: 28px;
+
+    background: var(--dark);
+    color: #fff;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.primary-btn span,
+.buy-btn span {
+    font-size: 18px;
+    line-height: 0;
+}
+
+.primary-btn:hover,
+.buy-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   HERO PRODUCT VISUAL
+========================= */
+
+.hero-image {
+    height: 370px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+}
+
+.image-glow {
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    background: rgba(163, 138, 92, 0.12);
+
+    filter: blur(35px);
+}
+
+
+/* Temporary bottle */
+
+.bottle-placeholder {
+    position: relative;
+
+    width: 105px;
+    height: 210px;
+
+    border-radius: 8px 8px 15px 15px;
+
+    background: linear-gradient(
+        100deg,
+        #202020,
+        #4b4b4b 45%,
+        #151515
+    );
+
+    box-shadow:
+        15px 25px 45px rgba(0, 0, 0, 0.25),
+        inset 5px 0 15px rgba(255, 255, 255, 0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+
+    animation: bottleFloat 5s ease-in-out infinite;
+}
+
+.bottle-placeholder::before {
+    content: "";
+
+    position: absolute;
+
+    top: -45px;
+
+    width: 45px;
+    height: 45px;
+
+    background: #1c1c1c;
+
+    border-radius: 4px 4px 1px 1px;
+
+    box-shadow:
+        inset 4px 0 8px rgba(255, 255, 255, 0.08);
+}
+
+.bottle-placeholder span {
+    color: #d7c49c;
+
+    font-family: var(--serif);
+    font-size: 38px;
+    font-style: italic;
+}
+
+@keyframes bottleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* =========================
+   SCROLL INDICATOR
+========================= */
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 25px;
+    left: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.scroll-indicator span {
+    width: 28px;
+    height: 1px;
+
+    background: var(--muted);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.product,
+.story,
+.notes {
+    padding: 100px 22px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--line);
+
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+.section-label span {
+    color: var(--dark);
+}
+
+
+/* =========================
+   PRODUCT
+========================= */
+
+.product-content {
+    padding-top: 65px;
+}
+
+.product h2,
+.story h2,
+.notes h2,
+.final-cta h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+
+    font-size: clamp(46px, 13vw, 76px);
+
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+.product-copy > p:not(.eyebrow) {
+    max-width: 330px;
+
+    margin-top: 28px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.price {
+    font-family: var(--serif);
+    font-size: 26px;
+}
+
+.size {
+    color: var(--muted);
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+    background: var(--dark);
+    color: #f5f3ee;
+}
+
+.story .section-label {
+    border-color: #3b3b3b;
+    color: #898989;
+}
+
+.story .section-label span {
+    color: #f5f3ee;
+}
+
+.story-content {
+    padding-top: 80px;
+}
+
+.story .eyebrow {
+    color: #8e8e8e;
+}
+
+.story h2 {
+    max-width: 600px;
+}
+
+.story-content > p:last-child {
+    max-width: 340px;
+
+    margin-top: 35px;
+
+    color: #aaa;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   NOTES
+========================= */
+
+.notes-header {
+    padding-top: 65px;
+}
+
+.notes-list {
+    margin-top: 60px;
+
+    border-top: 1px solid var(--line);
+}
+
+.note {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+
+    padding: 28px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.note-number {
+    color: var(--muted);
+
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.note h3 {
+    font-family: var(--serif);
+
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.note p {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.final-cta {
+    min-height: 70vh;
+
+    padding: 100px 22px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: #ded9cf;
+}
+
+.final-cta h2 {
+    max-width: 500px;
+}
+
+.final-cta .primary-btn {
+    align-self: flex-start;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 55px 22px 30px;
+
+    background: var(--dark);
+    color: #fff;
+}
+
+.footer-brand {
+    font-size: 25px;
+    letter-spacing: 6px;
+}
+
+.footer > p {
+    margin-top: 15px;
+
+    color: #858585;
+
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: italic;
+}
+
+.footer-bottom {
+    margin-top: 70px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #353535;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: #707070;
+
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 768px) {
+
+    /* HEADER */
+
+    .header {
+        height: 100px;
+        padding: 0 50px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+        gap: 35px;
+    }
+
+    .nav a {
+        position: relative;
+
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+
+        color: var(--muted);
+    }
+
+    .nav a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: -7px;
+
+        width: 0;
+        height: 1px;
+
+        background: var(--dark);
+
+        transition: width 0.3s ease;
+    }
+
+    .nav a:hover::after {
+        width: 100%;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 100vh;
+
+        padding: 160px 8vw 70px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(90px, 10vw, 150px);
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-image {
+        height: 600px;
+        margin-top: 0;
+    }
+
+    .bottle-placeholder {
+        width: 160px;
+        height: 330px;
+    }
+
+    .bottle-placeholder::before {
+        top: -65px;
+
+        width: 65px;
+        height: 65px;
+    }
+
+    .bottle-placeholder span {
+        font-size: 55px;
+    }
+
+    .image-glow {
+        width: 420px;
+        height: 420px;
+    }
+
+    .scroll-indicator {
+        left: 8vw;
+    }
+
+
+    /* SECTIONS */
+
+    .product,
+    .story,
+    .notes {
+        padding: 150px 8vw;
+    }
+
+    .product-content {
+        padding-top: 100px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product-copy > p:not(.eyebrow) {
+        max-width: 440px;
+    }
+
+
+    /* STORY */
+
+    .story-content {
+        padding-top: 120px;
+
+        margin-left: 25%;
+    }
+
+    .story-content > p:last-child {
+        max-width: 450px;
+    }
+
+
+    /* NOTES */
+
+    .notes-header {
+        padding-top: 100px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .notes-list {
+        margin-top: 100px;
+    }
+
+    .note {
+        grid-template-columns: 100px 1fr;
+
+        padding: 40px 20px;
+    }
+
+    .note h3 {
+        font-size: 32px;
+    }
+
+
+    /* CTA */
+
+    .final-cta {
+        min-height: 80vh;
+
+        padding: 150px 8vw;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 80px 8vw 35px;
+    }
+
+}
+
+
+/* =========================
+   LARGE DESKTOP
+========================= */
+
+@media (min-width: 1200px) {
+
+    .hero h1 {
+        font-size: 145px;
+    }
+
+    .product h2,
+    .story h2,
+    .notes h2,
+    .final-cta h2 {
+        font-size: 90px;
+    }
+
+}
+```
+```css
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Button arrow animation */
+
+.primary-btn span,
+.buy-btn span {
+    transition: transform 0.3s ease;
+}
+
+
+/* Mobile navigation */
+
+@media (max-width: 767px) {
+
+    .nav {
+        position: fixed;
+
+        top: 80px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 30px 22px;
+
+        background: var(--background);
+
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        transform: translateY(-120%);
+        transition: transform 0.4s ease;
+
+        border-bottom: 1px solid var(--line);
+    }
+
+    .nav.active {
+        transform: translateY(0);
+    }
+
+    .nav a {
+        font-family: var(--serif);
+        font-size: 28px;
+        font-weight: 400;
+    }
+
+
+    /* Hamburger animation */
+
+    .menu-btn.active span:first-child {
+        transform: rotate(45deg) translate(3px, 3px);
+    }
+
+    .menu-btn.active span:last-child {
+        width: 24px;
+        transform: rotate(-45deg) translate(2px, -2px);
+    }
+
+}
+```
+
+```css
+/* =========================================================
+   ÉLAN — BLACK LUXURY THEME
+========================================================= */
+
+:root {
+    --background: #080808;
+    --dark: #f4f1ea;
+    --muted: #85827b;
+    --line: #292929;
+    --accent: #b59a6a;
+
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   BASE
+========================= */
+
+body {
+    background: var(--background);
+    color: #f4f1ea;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    background: transparent;
+}
+
+.logo {
+    color: #f4f1ea;
+}
+
+.menu-btn span {
+    background: #f4f1ea;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav a {
+    color: #85827b;
+}
+
+.nav a::after {
+    background: #f4f1ea;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 70% 55%,
+            rgba(181, 154, 106, 0.08),
+            transparent 32%
+        ),
+        #080808;
+}
+
+.hero h1 {
+    color: #f4f1ea;
+}
+
+.hero h1 em {
+    color: #b59a6a;
+}
+
+.hero-description {
+    color: #85827b;
+}
+
+
+/* =========================
+   EYEBROW
+========================= */
+
+.eyebrow {
+    color: #85827b;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn,
+.buy-btn {
+    background: #f4f1ea;
+    color: #080808;
+}
+
+.primary-btn:hover,
+.buy-btn:hover {
+    background: #b59a6a;
+    color: #080808;
+}
+
+
+/* =========================
+   HERO BOTTLE
+========================= */
+
+.image-glow {
+    background: rgba(181, 154, 106, 0.13);
+
+    filter: blur(55px);
+}
+
+.bottle-placeholder {
+    background:
+        linear-gradient(
+            105deg,
+            #050505,
+            #242424 45%,
+            #080808
+        );
+
+    border: 1px solid #333;
+
+    box-shadow:
+        20px 30px 60px rgba(0, 0, 0, 0.7),
+        inset 5px 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.bottle-placeholder::before {
+    background:
+        linear-gradient(
+            90deg,
+            #090909,
+            #292929,
+            #090909
+        );
+}
+
+.bottle-placeholder span {
+    color: #c5aa78;
+}
+
+
+/* =========================
+   SCROLL INDICATOR
+========================= */
+
+.scroll-indicator {
+    color: #66635d;
+}
+
+.scroll-indicator span {
+    background: #66635d;
+}
+
+
+/* =========================
+   SECTION LABELS
+========================= */
+
+.section-label {
+    border-color: #292929;
+    color: #77736c;
+}
+
+.section-label span {
+    color: #f4f1ea;
+}
+
+
+/* =========================
+   PRODUCT SECTION
+========================= */
+
+.product {
+    background: #080808;
+}
+
+.product h2 {
+    color: #f4f1ea;
+}
+
+.product-copy > p:not(.eyebrow) {
+    color: #85827b;
+}
+
+.price {
+    color: #f4f1ea;
+}
+
+.size {
+    color: #68655f;
+}
+
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+    background: #111111;
+    color: #f4f1ea;
+}
+
+.story .section-label {
+    border-color: #292929;
+}
+
+.story-content > p:last-child {
+    color: #85827b;
+}
+
+
+/* =========================
+   NOTES
+========================= */
+
+.notes {
+    background: #080808;
+}
+
+.notes-list {
+    border-color: #292929;
+}
+
+.note {
+    border-color: #292929;
+}
+
+.note-number {
+    color: #68655f;
+}
+
+.note h3 {
+    color: #f4f1ea;
+}
+
+.note p {
+    color: #77736c;
+}
+
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.final-cta {
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(181, 154, 106, 0.10),
+            transparent 35%
+        ),
+        #171717;
+}
+
+.final-cta h2 {
+    color: #f4f1ea;
+}
+
+.final-cta h2 em {
+    color: #b59a6a;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #030303;
+}
+
+.footer-brand {
+    color: #f4f1ea;
+}
+
+.footer > p {
+    color: #77736c;
+}
+
+.footer-bottom {
+    border-color: #222;
+    color: #55524d;
+}
+
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+@media (max-width: 767px) {
+
+    .nav {
+        background: #080808;
+        border-color: #292929;
+    }
+
+    .nav a {
+        color: #f4f1ea;
+    }
+
+    .menu-btn.active span {
+        background: #b59a6a;
+    }
+
+}
+```

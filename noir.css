@@ -1,0 +1,3256 @@
+/* =========================================================
+   NOIR — LUXURY RESTAURANT
+   Premium dark / cinematic design
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #090909;
+    color: #f2eee7;
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+    --bg: #090909;
+    --bg-soft: #101010;
+    --cream: #f2eee7;
+    --muted: #8c8983;
+    --line: rgba(242, 238, 231, 0.14);
+    --gold: #b99b67;
+    --gold-light: #d6bd8b;
+}
+
+::selection {
+    background: var(--cream);
+    color: #090909;
+}
+
+.noir-section,
+.reserve-section {
+    position: relative;
+    width: 100%;
+}
+
+.noir-section {
+    padding: 120px 7vw;
+}
+
+.section-label {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+.section-number {
+    position: absolute;
+    top: 45px;
+    right: 7vw;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    color: #555;
+
+    letter-spacing: 0.15em;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.noir-nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 76px;
+
+    padding: 0 7vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+
+    background: rgba(9,9,9,0.55);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.noir-logo {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    letter-spacing: 0.12em;
+
+    transition: 0.3s ease;
+}
+
+.noir-logo:hover {
+    color: var(--gold-light);
+}
+
+.noir-nav nav {
+    display: none;
+}
+
+.nav-reserve {
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    padding: 11px 15px;
+
+    border: 1px solid rgba(242,238,231,0.3);
+
+    transition: 0.3s ease;
+}
+
+.nav-reserve:hover {
+    background: var(--cream);
+    color: #090909;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.noir-hero {
+    position: relative;
+
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 110px 7vw 80px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 35%,
+            rgba(185,155,103,0.15),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255,255,255,0.04),
+            transparent 30%
+        ),
+        #090909;
+}
+
+
+/* cinematic light */
+
+.noir-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -300px;
+    top: 5%;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(185,155,103,0.18),
+        transparent 65%
+    );
+
+    filter: blur(10px);
+
+    animation: heroGlow 7s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+    from {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+
+/* subtle grain */
+
+.noir-hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.035;
+
+    pointer-events: none;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9,9,9,0.95),
+            rgba(9,9,9,0.45),
+            rgba(9,9,9,0.8)
+        );
+}
+
+.hero-content {
+    position: relative;
+
+    max-width: 850px;
+
+    z-index: 2;
+}
+
+.hero-eyebrow {
+    margin-bottom: 28px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+    letter-spacing: 0.2em;
+
+    color: var(--gold);
+
+    opacity: 0;
+    animation: fadeUp 1s 0.2s forwards;
+}
+
+.hero-content h1 {
+    max-width: 800px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(58px, 14vw, 150px);
+
+    font-weight: 400;
+
+    line-height: 0.88;
+
+    letter-spacing: -0.045em;
+
+    opacity: 0;
+    animation: fadeUp 1.1s 0.35s forwards;
+}
+
+.hero-content h1 span {
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 1px rgba(242,238,231,0.65);
+
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 390px;
+
+    margin-top: 35px;
+
+    color: #aaa7a1;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    opacity: 0;
+    animation: fadeUp 1s 0.55s forwards;
+}
+
+.noir-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+
+    margin-top: 38px;
+
+    padding: 15px 19px;
+
+    border: 1px solid rgba(242,238,231,0.3);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        border 0.35s ease,
+        transform 0.35s ease;
+
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+}
+
+.noir-button span {
+    font-size: 15px;
+
+    transition: transform 0.3s ease;
+}
+
+.noir-button:hover {
+    background: var(--cream);
+    color: #090909;
+
+    border-color: var(--cream);
+
+    transform: translateY(-3px);
+}
+
+.noir-button:hover span {
+    transform: translate(3px,-3px);
+}
+
+.hero-scroll {
+    position: absolute;
+
+    bottom: 30px;
+    left: 7vw;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+    letter-spacing: 0.15em;
+
+    color: #666;
+
+    text-transform: uppercase;
+}
+
+.hero-scroll span {
+    display: block;
+
+    width: 30px;
+    height: 1px;
+
+    background: #666;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.intro {
+    min-height: 85vh;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #090909,
+            #0d0d0d
+        );
+}
+
+.intro-content {
+    max-width: 800px;
+}
+
+.intro h2,
+.menu-section h2,
+.experience h2,
+.reserve-section h2 {
+    margin-top: 22px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(42px, 9vw, 90px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.035em;
+}
+
+.intro h2 span,
+.menu-section h2 span,
+.experience h2 span,
+.reserve-section h2 span {
+    display: block;
+
+    color: #77736d;
+
+    font-style: italic;
+}
+
+.body-copy {
+    max-width: 550px;
+
+    margin-top: 30px;
+
+    color: #85827d;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+.signature {
+    margin-top: 55px;
+
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.signature span {
+    font-family: "Playfair Display", serif;
+
+    font-size: 26px;
+
+    letter-spacing: 0.1em;
+}
+
+.signature small {
+    font-family: "DM Mono", monospace;
+
+    color: #555;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.menu-section {
+    background: #0d0d0d;
+}
+
+.menu-list {
+    margin-top: 70px;
+
+    border-top: 1px solid var(--line);
+}
+
+.menu-item {
+    position: relative;
+
+    display: grid;
+
+    gap: 15px;
+
+    padding: 32px 0;
+
+    border-bottom: 1px solid var(--line);
+
+    transition: padding 0.35s ease;
+}
+
+.menu-item:hover {
+    padding-left: 15px;
+}
+
+.menu-item > div {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+}
+
+.dish-number {
+    font-family: "DM Mono", monospace;
+
+    color: #555;
+
+    font-size: 9px;
+}
+
+.menu-item h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+}
+
+.menu-item p {
+    max-width: 430px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.menu-item strong {
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+
+    color: var(--gold);
+}
+
+.text-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+
+    color: #aaa;
+
+    transition: 0.3s ease;
+}
+
+.text-link span {
+    font-size: 17px;
+
+    transition: transform 0.3s ease;
+}
+
+.text-link:hover {
+    color: var(--cream);
+}
+
+.text-link:hover span {
+    transform: translateX(6px);
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience {
+    background: #090909;
+}
+
+.experience-grid {
+    margin-top: 70px;
+
+    display: grid;
+
+    gap: 1px;
+
+    background: var(--line);
+}
+
+.experience-card {
+    min-height: 250px;
+
+    padding: 30px;
+
+    background: #090909;
+
+    transition:
+        background 0.35s ease,
+        transform 0.35s ease;
+}
+
+.experience-card:hover {
+    background: #111;
+    transform: translateY(-4px);
+}
+
+.experience-card > span {
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    color: var(--gold);
+}
+
+.experience-card h3 {
+    margin-top: 55px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 29px;
+
+    font-weight: 400;
+}
+
+.experience-card p {
+    margin-top: 15px;
+
+    max-width: 300px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   RESERVATION
+========================================================= */
+
+.reserve-section {
+    padding: 140px 7vw;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(185,155,103,0.12),
+            transparent 35%
+        ),
+        #0d0d0d;
+}
+
+.reserve-inner {
+    max-width: 950px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.reserve-section h2 {
+    font-size: clamp(50px, 11vw, 110px);
+}
+
+.reserve-section > .reserve-inner > p:not(.section-label) {
+    max-width: 500px;
+
+    margin: 30px auto 0;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.reserve-section .noir-button {
+    margin-top: 35px;
+}
+
+.contact-details {
+    margin-top: 90px;
+
+    padding-top: 30px;
+
+    display: grid;
+
+    gap: 30px;
+
+    border-top: 1px solid var(--line);
+}
+
+.contact-details div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.contact-details span {
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.18em;
+
+    color: #555;
+}
+
+.contact-details strong {
+    font-size: 12px;
+
+    font-weight: 400;
+
+    color: #aaa;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.noir-footer {
+    padding: 45px 7vw;
+
+    border-top: 1px solid var(--line);
+
+    background: #070707;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.footer-logo {
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+
+    letter-spacing: 0.12em;
+}
+
+.noir-footer p {
+    color: #555;
+
+    font-size: 11px;
+}
+
+.noir-footer > div:last-child {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    color: #444;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.1em;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 650px) {
+
+    .noir-section {
+        padding: 150px 9vw;
+    }
+
+    .section-number {
+        right: 9vw;
+    }
+
+    .noir-hero {
+        padding-left: 9vw;
+        padding-right: 9vw;
+    }
+
+    .hero-scroll {
+        left: 9vw;
+    }
+
+    .menu-item {
+        grid-template-columns: 1.1fr 1.5fr auto;
+
+        align-items: center;
+
+        gap: 30px;
+    }
+
+    .menu-item p {
+        margin: 0;
+    }
+
+    .experience-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact-details {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .noir-footer {
+        padding-left: 9vw;
+        padding-right: 9vw;
+    }
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 900px) {
+
+    .noir-nav {
+        padding: 0 5vw;
+    }
+
+    .noir-nav nav {
+        display: flex;
+
+        gap: 38px;
+    }
+
+    .noir-nav nav a {
+        position: relative;
+
+        font-family: "DM Mono", monospace;
+
+        font-size: 9px;
+
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+
+        color: #777;
+
+        transition: 0.3s ease;
+    }
+
+    .noir-nav nav a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: -8px;
+
+        width: 0;
+        height: 1px;
+
+        background: var(--gold);
+
+        transition: width 0.3s ease;
+    }
+
+    .noir-nav nav a:hover {
+        color: var(--cream);
+    }
+
+    .noir-nav nav a:hover::after {
+        width: 100%;
+    }
+
+    .noir-hero {
+        padding-left: 12vw;
+    }
+
+    .hero-scroll {
+        left: 5vw;
+    }
+
+    .noir-section {
+        padding: 180px 12vw;
+    }
+
+    .section-number {
+        right: 5vw;
+    }
+
+    .intro-content {
+        margin-left: 8vw;
+    }
+
+    .menu-section {
+        padding-left: 16vw;
+        padding-right: 16vw;
+    }
+
+    .experience {
+        padding-left: 12vw;
+        padding-right: 12vw;
+    }
+
+    .reserve-section {
+        padding-left: 12vw;
+        padding-right: 12vw;
+    }
+
+    .noir-footer {
+        padding-left: 5vw;
+        padding-right: 5vw;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+        align-items: center;
+    }
+
+    .noir-footer > div:last-child {
+        grid-column: 3;
+        margin-top: 0;
+    }
+
+    .noir-footer p {
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* =========================================================
+   CINEMATIC IMAGE SYSTEM
+========================================================= */
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9,9,9,0.92) 0%,
+            rgba(9,9,9,0.55) 50%,
+            rgba(9,9,9,0.3) 100%
+        ),
+        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2000&q=85");
+
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0.55;
+
+    transform: scale(1.03);
+
+    animation: heroImageReveal 1.8s ease forwards;
+}
+
+@keyframes heroImageReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+
+    to {
+        opacity: 0.55;
+        transform: scale(1.03);
+    }
+
+}
+
+
+/* =========================================================
+   EDITORIAL IMAGE
+========================================================= */
+
+.noir-image-section {
+    position: relative;
+
+    width: 100%;
+
+    padding: 0 7vw 120px;
+
+    background: #090909;
+}
+
+.editorial-image {
+    width: 100%;
+    height: 65vh;
+
+    min-height: 420px;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 40%,
+            rgba(0,0,0,0.5)
+        ),
+        url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1800&q=85");
+
+    background-size: cover;
+    background-position: center;
+
+    filter: saturate(0.75);
+
+    transition:
+        transform 1s ease,
+        filter 0.6s ease;
+}
+
+.editorial-image:hover {
+    transform: scale(0.985);
+
+    filter: saturate(1);
+}
+
+.editorial-caption {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 14px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+
+    color: #555;
+}
+
+
+/* =========================================================
+   MENU DISH IMAGES
+========================================================= */
+
+.menu-item {
+    position: relative;
+}
+
+.dish-image {
+    width: 100%;
+    height: 190px;
+
+    margin-bottom: 22px;
+
+    background-size: cover;
+    background-position: center;
+
+    filter: grayscale(25%) saturate(0.75);
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.menu-item:hover .dish-image {
+    transform: scale(1.015);
+
+    filter:
+        grayscale(0%)
+        saturate(1);
+}
+
+
+.dish-1 {
+    background-image:
+        url("https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1000&q=80");
+}
+
+.dish-2 {
+    background-image:
+        url("https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1000&q=80");
+}
+
+.dish-3 {
+    background-image:
+        url("https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=80");
+}
+
+.dish-4 {
+    background-image:
+        url("https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=80");
+}
+
+
+/* =========================================================
+   MENU DESKTOP IMAGE LAYOUT
+========================================================= */
+
+@media (min-width: 650px) {
+
+    .dish-image {
+        height: 250px;
+    }
+
+}
+
+
+@media (min-width: 900px) {
+
+    .noir-image-section {
+        padding-left: 12vw;
+        padding-right: 12vw;
+        padding-bottom: 160px;
+    }
+
+    .editorial-image {
+        height: 75vh;
+    }
+
+    .menu-item {
+        display: grid;
+
+        grid-template-columns:
+            180px
+            1fr
+            1.3fr
+            auto;
+
+        align-items: center;
+
+        gap: 30px;
+    }
+
+    .dish-image {
+        width: 180px;
+        height: 120px;
+
+        margin: 0;
+    }
+
+    .menu-item > div:nth-child(2) {
+        display: block;
+    }
+
+}
+/* =========================================================
+   RESERVATION MODAL
+========================================================= */
+
+.reservation-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.reservation-modal.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.reservation-backdrop {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.78);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.reservation-panel {
+    position: relative;
+
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 40px 25px;
+
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(185,155,103,0.12),
+            transparent 30%
+        ),
+        #101010;
+
+    border: 1px solid rgba(242,238,231,0.13);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.7);
+
+    transform: translateY(30px) scale(0.97);
+
+    transition:
+        transform 0.5s cubic-bezier(.2,.8,.2,1);
+}
+
+.reservation-modal.open .reservation-panel {
+    transform: translateY(0) scale(1);
+}
+
+.reservation-close {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 36px;
+    height: 36px;
+
+    border: 1px solid rgba(242,238,231,0.15);
+
+    background: transparent;
+
+    color: #aaa;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.reservation-close:hover {
+    background: var(--cream);
+
+    color: #090909;
+
+    border-color: var(--cream);
+}
+
+.reservation-content h2,
+.reservation-success h2 {
+    margin-top: 18px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(44px, 9vw, 75px);
+
+    line-height: 0.95;
+
+    font-weight: 400;
+
+    letter-spacing: -0.04em;
+}
+
+.reservation-content h2 span,
+.reservation-success h2 span {
+    display: block;
+
+    color: #77736d;
+
+    font-style: italic;
+}
+
+.reservation-intro {
+    max-width: 470px;
+
+    margin-top: 20px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+#reservationForm {
+    margin-top: 35px;
+}
+
+#reservationForm label {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin-bottom: 20px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+.form-row {
+    display: grid;
+
+    gap: 0;
+}
+
+#reservationForm input,
+#reservationForm select,
+#reservationForm textarea {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid rgba(242,238,231,0.12);
+
+    outline: none;
+
+    background: rgba(255,255,255,0.035);
+
+    color: var(--cream);
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 12px;
+
+    resize: vertical;
+
+    transition: 0.3s ease;
+}
+
+#reservationForm input::placeholder,
+#reservationForm textarea::placeholder {
+    color: #4f4f4f;
+}
+
+#reservationForm select {
+    color: #aaa;
+}
+
+#reservationForm option {
+    background: #101010;
+
+    color: var(--cream);
+}
+
+#reservationForm input:focus,
+#reservationForm select:focus,
+#reservationForm textarea:focus {
+    border-color: rgba(185,155,103,0.7);
+
+    background: rgba(255,255,255,0.05);
+}
+
+.reservation-submit {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 16px 20px;
+
+    border: 1px solid rgba(242,238,231,0.3);
+
+    background: transparent;
+
+    color: var(--cream);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition: 0.35s ease;
+}
+
+.reservation-submit span {
+    margin-left: 15px;
+
+    font-size: 14px;
+}
+
+.reservation-submit:hover {
+    background: var(--cream);
+
+    color: #090909;
+
+    border-color: var(--cream);
+}
+
+.form-note {
+    margin-top: 15px;
+
+    text-align: center;
+
+    color: #444;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   SUCCESS STATE
+========================================================= */
+
+.reservation-success {
+    display: none;
+
+    text-align: center;
+}
+
+.reservation-success.show {
+    display: block;
+}
+
+.reservation-content.hidden {
+    display: none;
+}
+
+.success-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--gold);
+
+    border-radius: 50%;
+
+    color: var(--gold);
+
+    font-size: 20px;
+
+    animation: successPop 0.5s ease forwards;
+}
+
+@keyframes successPop {
+
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+.reservation-success h2 {
+    margin-bottom: 25px;
+}
+
+.reservation-success > p:not(.section-label) {
+    max-width: 420px;
+
+    margin: auto;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.reservation-success .reservation-submit {
+    max-width: 250px;
+
+    margin-top: 35px;
+}
+
+
+/* =========================================================
+   DESKTOP MODAL
+========================================================= */
+
+@media (min-width: 650px) {
+
+    .reservation-panel {
+        padding: 55px 60px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 18px;
+    }
+
+}
+/* =========================================================
+   CINEMATIC DISH VIEWER
+========================================================= */
+
+.dish-viewer {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease;
+}
+
+.dish-viewer.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dish-viewer-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.88);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.dish-viewer-panel {
+    position: relative;
+
+    width: 100%;
+    max-width: 1000px;
+
+    max-height: 90vh;
+
+    overflow: hidden;
+
+    display: grid;
+
+    background: #0d0d0d;
+
+    border: 1px solid rgba(242,238,231,0.12);
+
+    box-shadow:
+        0 40px 120px rgba(0,0,0,0.8);
+
+    transform:
+        translateY(35px)
+        scale(0.97);
+
+    transition:
+        transform 0.55s cubic-bezier(.2,.8,.2,1);
+}
+
+.dish-viewer.open .dish-viewer-panel {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.dish-viewer-image {
+    min-height: 320px;
+
+    background-size: cover;
+    background-position: center;
+
+    filter: saturate(0.8);
+
+    transition: background-image 0.3s ease;
+}
+
+.dish-viewer-content {
+    padding: 35px 28px;
+}
+
+.dish-viewer-number {
+    font-family: "DM Mono", monospace;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 0.18em;
+}
+
+.dish-viewer-content h2 {
+    margin-top: 15px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(42px, 8vw, 75px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.04em;
+}
+
+.dish-viewer-description {
+    max-width: 430px;
+
+    margin-top: 25px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+.dish-viewer-price {
+    display: block;
+
+    margin-top: 35px;
+
+    color: var(--gold);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 14px;
+}
+
+.dish-viewer-close {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 3;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid rgba(242,238,231,0.2);
+
+    background: rgba(0,0,0,0.4);
+
+    color: var(--cream);
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.dish-viewer-close:hover {
+    background: var(--cream);
+
+    color: #090909;
+}
+
+
+/* =========================================================
+   CLICKABLE DISHES
+========================================================= */
+
+.menu-item {
+    cursor: pointer;
+}
+
+.dish-image {
+    overflow: hidden;
+}
+
+.menu-item::after {
+    content: "VIEW DISH ↗";
+
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        translateX(10px);
+
+    opacity: 0;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+
+    color: var(--gold);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+.menu-item:hover::after {
+    opacity: 1;
+
+    transform:
+        translateY(-50%)
+        translateX(0);
+}
+
+
+/* =========================================================
+   DESKTOP VIEWER
+========================================================= */
+
+@media (min-width: 750px) {
+
+    .dish-viewer-panel {
+        grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .dish-viewer-image {
+        min-height: 600px;
+    }
+
+    .dish-viewer-content {
+        align-self: center;
+
+        padding: 55px;
+    }
+
+}
+
+
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+
+@media (pointer: fine) {
+
+    body.custom-cursor {
+        cursor: none;
+    }
+
+    body.custom-cursor a,
+    body.custom-cursor button,
+    body.custom-cursor .menu-item {
+        cursor: none;
+    }
+
+    .noir-cursor {
+        position: fixed;
+
+        width: 9px;
+        height: 9px;
+
+        border-radius: 50%;
+
+        background: var(--cream);
+
+        pointer-events: none;
+
+        z-index: 2000;
+
+        transform:
+            translate(-50%, -50%);
+
+        mix-blend-mode: difference;
+    }
+
+    .noir-cursor-ring {
+        position: fixed;
+
+        width: 32px;
+        height: 32px;
+
+        border: 1px solid rgba(242,238,231,0.6);
+
+        border-radius: 50%;
+
+        pointer-events: none;
+
+        z-index: 1999;
+
+        transform:
+            translate(-50%, -50%);
+
+        transition:
+            width 0.25s ease,
+            height 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+    body.cursor-hover .noir-cursor-ring {
+        width: 52px;
+        height: 52px;
+
+        border-color: var(--gold);
+    }
+
+}
+/* =========================================
+   PHASE 6 — CINEMATIC INTRO
+========================================= */
+
+body.noir-loading {
+    overflow: hidden;
+}
+
+
+/* INTRO SCREEN */
+
+.noir-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #090909;
+
+    overflow: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+
+.noir-intro.intro-finished {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* CENTRAL CONTENT */
+
+.intro-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    animation:
+        introContentIn 1.2s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+.intro-label {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--gold);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.35em;
+
+    opacity: 0;
+    animation:
+        introTextIn 0.8s
+        0.2s
+        ease forwards;
+}
+
+
+.intro-content h1 {
+    margin: 0;
+
+    color: var(--cream);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(80px, 22vw, 180px);
+
+    font-weight: 400;
+
+    line-height: 0.8;
+
+    letter-spacing: -0.07em;
+
+    opacity: 0;
+
+    animation:
+        introTitleIn 1.2s
+        0.25s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+
+.intro-content p {
+    margin-top: 28px;
+
+    color: #777;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.35em;
+
+    opacity: 0;
+
+    animation:
+        introTextIn 0.8s
+        0.7s
+        ease forwards;
+}
+
+
+/* TOP / BOTTOM DETAILS */
+
+.intro-bottom {
+    position: absolute;
+
+    left: 30px;
+    right: 30px;
+    bottom: 28px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #444;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 0.18em;
+
+    opacity: 0;
+
+    animation:
+        introTextIn 0.8s
+        1s
+        ease forwards;
+}
+
+
+/* GOLD LINE */
+
+.intro-line {
+    position: absolute;
+
+    width: 1px;
+    height: 0;
+
+    top: 0;
+    left: 50%;
+
+    background: var(--gold);
+
+    opacity: 0.45;
+
+    animation:
+        introLine 1.6s
+        ease forwards;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes introContentIn {
+
+    from {
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes introTitleIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+
+@keyframes introTextIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes introLine {
+
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+
+}
+
+
+/* =========================================
+   NAV PREMIUM STATE
+========================================= */
+
+.noir-nav {
+    transition:
+        background 0.5s ease,
+        border-color 0.5s ease,
+        backdrop-filter 0.5s ease;
+}
+
+
+.noir-nav.scrolled {
+    background:
+        rgba(9, 9, 9, 0.82);
+
+    border-bottom-color:
+        rgba(242, 238, 231, 0.12);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+/* =========================================
+   NAV ACTIVE LINK
+========================================= */
+
+.noir-nav a {
+    position: relative;
+}
+
+
+.noir-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--gold);
+
+    transform:
+        scaleX(0);
+
+    transform-origin: right;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.noir-nav a:hover::after,
+.noir-nav a.active::after {
+
+    transform:
+        scaleX(1);
+
+    transform-origin: left;
+}
+
+
+/* =========================================
+   BUTTON LIGHT EFFECT
+========================================= */
+
+.noir-button {
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+
+.noir-button::before {
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    left: var(--mouse-x, 50%);
+    top: var(--mouse-y, 50%);
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.16),
+            transparent 65%
+        );
+
+    transition:
+        transform 0.55s ease;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.noir-button:hover::before {
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* =========================================
+   EDITORIAL IMAGE MOTION
+========================================= */
+
+.editorial-image {
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.editorial-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 20%,
+            rgba(255,255,255,0.08) 45%,
+            transparent 70%
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:
+        transform 1s ease;
+}
+
+
+.editorial-image:hover::after {
+    transform:
+        translateX(120%);
+}
+
+
+/* =========================================
+   MENU IMAGE MOTION
+========================================= */
+
+.dish-image {
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.dish-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 25%,
+            rgba(255,255,255,0.1),
+            transparent 75%
+        );
+
+    transform:
+        translateX(-120%);
+
+    transition:
+        transform 0.9s ease;
+}
+
+
+.menu-item:hover .dish-image::after {
+    transform:
+        translateX(120%);
+}
+
+
+/* =========================================
+   DISH VIEWER BUTTON
+========================================= */
+
+.dish-reserve-button {
+    margin-top: 35px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding:
+        0 22px;
+
+    border:
+        1px solid
+        rgba(242,238,231,0.2);
+
+    background:
+        transparent;
+
+    color:
+        var(--cream);
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+
+    text-transform:
+        uppercase;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.dish-reserve-button:hover {
+    border-color:
+        var(--gold);
+
+    background:
+        rgba(185,155,103,0.08);
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .noir-intro,
+    .intro-content,
+    .intro-label,
+    .intro-content h1,
+    .intro-content p,
+    .intro-bottom,
+    .intro-line {
+
+        animation: none !important;
+
+        transition: none !important;
+
+    }
+
+}
+/* =========================================
+   PHASE 7 — BRAND EXPERIENCE
+========================================= */
+
+
+/* =========================================
+   ATMOSPHERE
+========================================= */
+
+.noir-atmosphere {
+
+    position: relative;
+
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #080808;
+}
+
+
+.atmosphere-image {
+
+    position: absolute;
+    inset: -5%;
+
+    background:
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2200&q=90");
+
+    background-size: cover;
+    background-position: center;
+
+    filter:
+        grayscale(30%)
+        saturate(0.7);
+
+    transform: scale(1.05);
+
+    transition:
+        transform 1.2s ease;
+}
+
+
+.noir-atmosphere:hover
+.atmosphere-image {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+.atmosphere-overlay {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9,9,9,0.92),
+            rgba(9,9,9,0.45),
+            rgba(9,9,9,0.82)
+        );
+
+}
+
+
+.atmosphere-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 85%);
+
+    text-align: center;
+
+}
+
+
+.atmosphere-content h2 {
+
+    margin-top: 25px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(42px, 7vw, 92px);
+
+    line-height: 0.98;
+
+    letter-spacing: -0.045em;
+
+    color: var(--cream);
+
+}
+
+
+.atmosphere-content p {
+
+    max-width: 430px;
+
+    margin:
+        35px auto 0;
+
+    color: #898681;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+}
+
+
+.eyebrow {
+
+    color: var(--gold);
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.25em;
+
+    text-transform: uppercase;
+
+}
+
+
+.atmosphere-index {
+
+    position: absolute;
+
+    z-index: 3;
+
+    bottom: 35px;
+
+    left: 7vw;
+
+    right: 7vw;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #777;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+/* =========================================
+   PHILOSOPHY
+========================================= */
+
+.noir-philosophy {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+
+    padding:
+        120px 7vw;
+
+    background:
+        #090909;
+
+}
+
+
+.philosophy-image {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 520px;
+
+}
+
+
+.philosophy-image-inner {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(0,0,0,0.25)
+        ),
+        url("https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=90");
+
+    background-size: cover;
+    background-position: center;
+
+    filter:
+        grayscale(20%)
+        saturate(0.75);
+
+    transition:
+        transform 1s cubic-bezier(.2,.8,.2,1),
+        filter 0.8s ease;
+}
+
+
+.philosophy-image:hover
+.philosophy-image-inner {
+
+    transform: scale(1.04);
+
+    filter:
+        grayscale(0%)
+        saturate(1);
+
+}
+
+
+.philosophy-content {
+
+    align-self: center;
+
+    max-width: 570px;
+
+}
+
+
+.philosophy-content h2 {
+
+    margin-top: 25px;
+
+    color: var(--cream);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(42px, 6vw, 75px);
+
+    font-weight: 400;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.045em;
+
+}
+
+
+.philosophy-content p {
+
+    max-width: 470px;
+
+    margin-top: 28px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.95;
+
+}
+
+
+.philosophy-signature {
+
+    display: block;
+
+    margin-top: 45px;
+
+    color: var(--gold);
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.18em;
+
+}
+
+
+/* =========================================
+   FINAL CTA
+========================================= */
+
+.noir-final {
+
+    position: relative;
+
+    min-height: 85vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        #070707;
+
+    text-align: center;
+
+}
+
+
+.final-glow {
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(185,155,103,0.10),
+            transparent 65%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.final-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.final-content h2 {
+
+    margin-top: 25px;
+
+    color: var(--cream);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(70px, 13vw, 170px);
+
+    font-weight: 400;
+
+    line-height: 0.82;
+
+    letter-spacing: -0.065em;
+
+}
+
+
+.final-content .noir-button {
+
+    margin-top: 55px;
+
+}
+
+
+.final-number {
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 7vw;
+    right: 7vw;
+    bottom: 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #555;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.16em;
+
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 850px) {
+
+    .noir-philosophy {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        align-items: center;
+
+        gap: 9vw;
+
+        padding:
+            180px 12vw;
+
+    }
+
+
+    .philosophy-image {
+
+        min-height: 650px;
+
+    }
+
+
+    .atmosphere-index,
+    .final-number {
+
+        left: 12vw;
+        right: 12vw;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .noir-atmosphere {
+
+        min-height: 80vh;
+
+    }
+
+
+    .atmosphere-content h2 {
+
+        font-size: 45px;
+
+    }
+
+
+    .noir-philosophy {
+
+        padding:
+            100px 7vw;
+
+    }
+
+
+    .philosophy-image {
+
+        min-height: 430px;
+
+    }
+
+
+    .final-content h2 {
+
+        font-size: 78px;
+
+    }
+
+}
+/* =========================================
+   PHASE 8 — CLIENT EXPERIENCE
+========================================= */
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.noir-details {
+
+    padding: 140px 7vw;
+
+    background: #0b0b0b;
+
+    border-top:
+        1px solid var(--line);
+
+}
+
+
+.details-header {
+
+    max-width: 720px;
+
+    margin-bottom: 80px;
+
+}
+
+
+.details-header h2 {
+
+    margin-top: 25px;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(45px, 7vw, 90px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.045em;
+
+    color: var(--cream);
+
+}
+
+
+.details-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    border-top:
+        1px solid var(--line);
+
+}
+
+
+.detail-card {
+
+    position: relative;
+
+    padding:
+        38px 0;
+
+    border-bottom:
+        1px solid var(--line);
+
+    transition:
+        padding 0.4s ease;
+
+}
+
+
+.detail-card:hover {
+
+    padding-left: 12px;
+
+}
+
+
+.detail-number {
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: var(--gold);
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+.detail-card h3 {
+
+    color: var(--cream);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+}
+
+
+.detail-card p {
+
+    max-width: 420px;
+
+    margin-top: 15px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.noir-contact {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 80px;
+
+    padding:
+        140px 7vw;
+
+    background:
+        #090909;
+
+    border-top:
+        1px solid var(--line);
+
+}
+
+
+.contact-left h2 {
+
+    margin-top: 25px;
+
+    color: var(--cream);
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(70px, 12vw, 150px);
+
+    font-weight: 400;
+
+    line-height: 0.82;
+
+    letter-spacing: -0.065em;
+
+}
+
+
+.contact-left > p {
+
+    margin-top: 40px;
+
+    color: #888;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+}
+
+
+.contact-left .noir-button {
+
+    margin-top: 35px;
+
+}
+
+
+.contact-right {
+
+    display: grid;
+
+    gap: 45px;
+
+    align-self: end;
+
+}
+
+
+.contact-block {
+
+    border-top:
+        1px solid var(--line);
+
+    padding-top: 20px;
+
+}
+
+
+.contact-block > span {
+
+    color: var(--gold);
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.2em;
+
+}
+
+
+.contact-block p {
+
+    margin-top: 14px;
+
+    color: #888;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================================
+   BACK TO PORTFOLIO
+========================================= */
+
+.portfolio-return {
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+    color: #777;
+
+    font-family:
+        "DM Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.portfolio-return:hover {
+
+    color: var(--cream);
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 800px) {
+
+    .noir-details,
+    .noir-contact {
+
+        padding-left: 12vw;
+        padding-right: 12vw;
+
+    }
+
+
+    .details-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        column-gap: 70px;
+
+    }
+
+
+    .detail-card {
+
+        min-height: 230px;
+
+        padding:
+            45px 0;
+
+    }
+
+
+    .noir-contact {
+
+        grid-template-columns:
+            1.2fr 0.8fr;
+
+        align-items: center;
+
+        gap: 12vw;
+
+    }
+
+
+    .contact-right {
+
+        gap: 65px;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .noir-details {
+
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+    }
+
+
+    .noir-contact {
+
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+    }
+
+
+    .contact-left h2 {
+
+        font-size: 82px;
+
+    }
+
+}
